@@ -1,38 +1,42 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Window Size</title>
-    <style>
-        #sizeInfo {
-            font-size: 24px;
-            font-weight: bold;
-            padding: 20px;
-            background-color: white;
-            border-radius: 10px;
-            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
-            display: inline-block;
-        }
-    </style>
+  <title>Window Size : height and width</title>
+  <style>
+    #sizeInfo {
+      font-family: Arial, sans-serif;
+      font-size: 24px;
+      font-weight: bold;
+      padding: 20px;
+      background-color: #f0f0f0;
+      margin: 20px;
+      border-radius: 10px;
+      text-align: center;
+    }
+  </style>
 </head>
 <body>
 
-    <div id="sizeInfo"></div>
+  <div id="sizeInfo">
+    <h1>Width: 0 and Height: 0</h1>
+  </div>
 
-    <script>
-        function updateSize() {
-            const width = window.innerWidth;
-            const height = window.innerHeight;
-            document.getElementById('sizeInfo').innerHTML = `Width: ${width} and Height: ${height}`;
-        }
+  <script>
+    const sizeDiv = document.getElementById("sizeInfo");
+    const h1 = sizeDiv.querySelector("h1");
 
-        // Update size on load
-        updateSize();
+    function updateWindowSize() {
+      const width = window.innerWidth;
+      const height = window.innerHeight;
+      h1.textContent = `Width: ${width} and Height: ${height}`;
+    }
 
-        // Update size on resize
-        window.addEventListener('resize', updateSize);
-    </script>
+    // Initial update
+    updateWindowSize();
+
+    // Listen for window resize
+    window.addEventListener("resize", updateWindowSize);
+  </script>
 
 </body>
 </html>
